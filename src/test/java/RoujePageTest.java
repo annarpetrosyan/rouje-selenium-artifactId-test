@@ -3,7 +3,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.testng.reporters.jq.Main;
 
 public class RoujePageTest {
     private WebDriver driver;
@@ -17,6 +16,7 @@ public class RoujePageTest {
         driver.manage().deleteAllCookies();
         mainPage = new MainPage(driver);
 
+
     }
 
     @AfterClass
@@ -28,7 +28,8 @@ public class RoujePageTest {
     @Test
     public void test(){
         mainPage.goBasePage();
-        mainPage.clickOn();
+        mainPage.fillSearch("Moschino");
+        mainPage.clickOnSearchButton();
     }
 
 

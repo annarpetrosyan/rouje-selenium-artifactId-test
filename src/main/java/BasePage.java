@@ -1,11 +1,16 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
     private  WebDriver driver;
+    protected WebDriverWait wait = new WebDriverWait(driver, 15);
 
-    public BasePage(WebDriver webDriver){
+//    WebDriverWait wait = new WebDriverWait(driver, 15);
+
+
+    public BasePage(WebDriver webDriver ){
         this.driver=webDriver;
     }
 
@@ -80,6 +85,8 @@ public class BasePage {
      * @param value
      */
      public void fill(String cssLocator, String value){
+//        wait.until(ExpectedConditions.visibilityOf(find(cssLocator)));
+        find(cssLocator).clear();
         find(cssLocator).sendKeys(value);
     }
 }
