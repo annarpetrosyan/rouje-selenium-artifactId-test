@@ -28,7 +28,7 @@ public class MainPage extends BasePage {
     }
 
     public void fillSearch(String value){
-        fill(searchInputSelector,value);
+        fill(searchInputSelector,value) ;
     }
 
 
