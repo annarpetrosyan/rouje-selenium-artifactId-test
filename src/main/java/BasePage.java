@@ -1,11 +1,13 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
     private  WebDriver driver;
-    protected WebDriverWait wait = new WebDriverWait(driver, 15);
+//    WebDriverWait wait = new WebDriverWait(driver, 15);
 
 //    WebDriverWait wait = new WebDriverWait(driver, 15);
 
@@ -88,5 +90,15 @@ public class BasePage {
 //        wait.until(ExpectedConditions.visibilityOf(find(cssLocator)));
         find(cssLocator).clear();
         find(cssLocator).sendKeys(value);
+    }
+
+    public boolean isNotDisplayed(WebElement element, Integer timeout) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+            wait.until(ExpectedConditions.invisibilityOf(element));
+        } catch (TimeoutException e) {
+            return false;
+        }
+        return true;
     }
 }

@@ -29,7 +29,7 @@ public class RoujePageTest {
     public void test(){
         mainPage.goBasePage();
         mainPage.fillSearch("Moschino");
-        mainPage.clickOnSearchButton();
+        mainPage.selectValue("Price");
     }
 
 
